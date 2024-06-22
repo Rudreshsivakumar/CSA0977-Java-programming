@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class VotingEligibility {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        String input = scanner.nextLine();
+
+        try {
+            double age = Double.parseDouble(input);
+
+            if (age < 0 || age % 1 != 0) {
+                System.out.println("Invalid input. Age must be a non-negative integer.");
+            } else {
+                int intAge = (int) age;
+                if (intAge >= 18) {
+                    System.out.println("You are eligible to vote.");
+                } else {
+                    int yearsLeft = 18 - intAge;
+                    System.out.println("You are allowed to vote after " + yearsLeft + " years.");
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid age.");
+        }
+
+        scanner.close();
+    }
+}
