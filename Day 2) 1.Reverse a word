@@ -1,0 +1,28 @@
+public class ReverseString {
+
+    public static void main(String[] args) {
+        String[] testCases = {"TEMPLE", "SIGN UP", "AT-LEAST", "1245", "!@#$%", "145*999=144855"};
+
+        for (String testCase : testCases) {
+            System.out.println("Original String: " + testCase);
+            System.out.println("Reversed String: " + reverse(testCase));
+            System.out.println();
+        }
+    }
+
+    public static String reverse(String input) {
+        char[] charArray = input.toCharArray();
+        int left = 0;
+        int right = charArray.length - 1;
+
+        while (left < right) {
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+
+            left++;
+            right--;
+        }
+        return new String(charArray);
+    }
+}
