@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class FactorCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Given Number: ");
+        int givenNumber = scanner.nextInt();
+        System.out.print("N: ");
+        int n = scanner.nextInt();
+        if (givenNumber <= 0) {
+            System.out.println("Invalid input. Given number must be positive.");
+        } else {
+            ArrayList<Integer> factors = new ArrayList<>();
+            for (int i = 1; i <= givenNumber; i++) {
+                if (givenNumber % i == 0) factors.add(i);
+            }
+            System.out.println("Number of factors = " + factors.size());
+            if (n > 0 && n <= factors.size()) {
+                System.out.println(n + "th factor of " + givenNumber + " = " + factors.get(n - 1));
+            } else {
+                System.out.println("Invalid input. N must be within the range of the number of factors.");
+            }
+        }
+
+        scanner.close();
+    }
+}
