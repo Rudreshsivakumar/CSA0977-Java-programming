@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class CompositeNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter A: ");
+        int A = scanner.nextInt();
+        System.out.print("Enter B: ");
+        int B = scanner.nextInt();
+        int min = Math.min(A, B);
+        int max = Math.max(A, B);
+        boolean hasComposite = false;
+        for (int num = min; num <= max; num++) {
+            if (num > 1 && !isPrime(num)) {
+                System.out.print(num + " ");
+                hasComposite = true;
+            }
+        }
+        if (!hasComposite) {
+            System.out.print("No composite numbers found in the range.");
+        }
+        
+        scanner.close();
+    }
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
