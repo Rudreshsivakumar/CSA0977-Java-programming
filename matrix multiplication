@@ -1,0 +1,28 @@
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        int[][] mat1 = { { 1, 2 }, { 5, 3 } };
+        int[][] mat2 = { { 2, 3 }, { 4, 1 } };
+        if (mat1[0].length != mat2.length) {
+            System.out.println("Matrix multiplication is not possible");
+            return;
+        }
+        int m = mat1.length; // rows of mat1
+        int n = mat2[0].length; // columns of mat2
+        int[][] result = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i][j] = 0;
+                for (int k = 0; k < mat1[i].length; k++) {
+                    result[i][j] += mat1[i][k] * mat2[k][j];
+                }
+            }
+        }
+        System.out.println("Resultant Matrix:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
